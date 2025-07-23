@@ -21,6 +21,14 @@
 - 📱 **Grid system adaptativo** (1-6 cards por fila según pantalla)
 - 🎨 **Tema personalizado** de Material-UI
 
+## 🌐 Demo en Vivo
+
+**¡Prueba la aplicación ahora!** 🚀
+
+[🔗 Ver Demo en Vercel](https://rick-and-morty-challenge-seven.vercel.app/)
+
+*La aplicación está desplegada en Vercel para demostración en vivo.*
+
 ## 📋 Requisitos del Sistema
 
 ### **Versiones Recomendadas:**
