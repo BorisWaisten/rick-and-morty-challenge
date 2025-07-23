@@ -61,15 +61,18 @@ const CharacterList = () => {
           justifyContent: 'center',
           alignItems: 'stretch',
           maxWidth: '1200px',
-          width: '100%'
+          width: '100%',
+          px: { xs: 1, sm: 2, md: 0 } // Padding horizontal para mobile
         }}
       >
         {characters.map((character) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={character.id}>
+          <Grid item xs={11} sm={6} md={4} lg={3} xl={2} key={character.id}>
             <Card 
               sx={{ 
-                height: '100%', 
-                display: 'flex', 
+                height: '100%',
+                mx: {xs: 'auto', sm: 'auto', md: 'auto', lg: 'auto'},
+                width: {xs: '75%', sm: '100%', md: '100%', lg: '100%'},
+                display: 'flex',
                 flexDirection: 'column',
                 transition: 'transform 0.2s ease-in-out',
                 '&:hover': {
@@ -83,9 +86,9 @@ const CharacterList = () => {
                 image={character.image}
                 alt={character.name}
                 sx={{ 
-                  objectFit: 'fill',
+                  objectFit: {xs: 'contain', sm: 'fill', md: 'fill', lg: 'fill'},
                   width: '100%',
-                  height: { xs: '200px', sm: '240px', md: '260px', lg: '260px' }
+                  height: { xs: 'auto', sm: '240px', md: '260px', lg: '260px' }
                 }}
               />
               <CardContent sx={{ flexGrow: 1, textAlign: 'center', p: { xs: 1.5, sm: 2 } }}>
@@ -94,7 +97,7 @@ const CharacterList = () => {
                   component="h2" 
                   sx={{ 
                     fontWeight: 'bold',
-                    fontSize: { xs: '0.8rem', sm: '1rem', md: '1.1rem' }
+                    fontSize: { xs: '.9rem', sm: '1rem', md: '1.1rem' }
                   }} 
                   gutterBottom
                 >
@@ -105,7 +108,7 @@ const CharacterList = () => {
                   color="text.secondary" 
                   sx={{ 
                     textAlign: 'left',
-                    fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.85rem' }
+                    fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.85rem' }
                   }}
                 >
                   species: "{character.species}"<br />

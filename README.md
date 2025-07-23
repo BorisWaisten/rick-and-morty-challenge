@@ -119,6 +119,25 @@ src/
 - **Grid**: `justifyContent: 'center'` para centrar las cards
 - **Justificación**: Evita que el contenido se vea desalineado hacia la izquierda en pantallas grandes
 
+### **7. Optimizaciones Mobile Específicas**
+
+#### **Grid System Mobile:**
+- **Cambio de `xs={12}` a `xs={11}`**: Evita que las cards toquen los bordes de la pantalla
+- **Padding horizontal**: `px: { xs: 1, sm: 2, md: 0 }` para mejor espaciado en mobile
+- **Justificación**: Mejora la experiencia visual en pantallas pequeñas
+
+#### **CardMedia Optimizaciones:**
+- **objectFit**: Ajustado para mantener proporciones de imagen sin distorsión
+- **height**: Definido responsivamente para diferentes tamaños de pantalla
+- **width**: Optimizado para mejor distribución en mobile
+- **Justificación**: Las imágenes se ven bien proporcionadas en todas las resoluciones
+
+#### **Tipografía Mobile Mejorada:**
+- **Nombres**: Aumentado fontSize para mejor legibilidad en pantallas pequeñas
+- **Características**: Ajustado fontSize de species y status para balance visual
+- **Responsive Typography**: Diferentes tamaños según breakpoint
+- **Justificación**: Mejor legibilidad y jerarquía visual en mobile
+
 ## 🔧 Tecnologías Utilizadas
 
 - **React 18**: Framework principal
