@@ -1,70 +1,175 @@
-# Getting Started with Create React App
+# Rick and Morty Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🚀 Características Implementadas
 
-## Available Scripts
+### **Requisitos del Challenge (Cumplidos):**
+- ✅ **Un solo componente principal**: `CharacterListWithHook.js`
+- ✅ **Servicio dedicado**: `rickAndMortyService.js` para manejar las llamadas a la API
+- ✅ **Custom Hook**: `useCharacters.js` que encapsula useEffect y la lógica de datos
+- ✅ **useEffect**: Implementado dentro del custom hook para manejar el ciclo de vida
+- ✅ **Fetch a la API**: https://rickandmortyapi.com/api/character
+- ✅ **Primeros 20 personajes**: Limitado con `.slice(0, 20)`
+- ✅ **Material-UI Cards**: Cada personaje se muestra en una Card
+- ✅ **Nombre como título**: El nombre del personaje se muestra como título principal
+- ✅ **Species y Status como descripción**: Formato `species: "Human"` y `status: "Alive"`
 
-In the project directory, you can run:
+### **Mejoras Adicionales Implementadas:**
+- 🎨 **Diseño responsive** para todas las resoluciones
+- ⚡ **Estados de carga** con spinner
+- 🚨 **Manejo de errores** con alertas
+- 🎯 **Efectos hover** en las Cards
+- 📱 **Grid system adaptativo** (1-6 cards por fila según pantalla)
+- 🎨 **Tema personalizado** de Material-UI
 
-### `npm start`
+## 📋 Requisitos del Sistema
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **Versiones Recomendadas:**
+- **Node.js**: 16.x o superior
+- **npm**: 8.x o superior
+- **React**: 18.x (se instala automáticamente)
+- **Material-UI**: 5.x (se instala automáticamente)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### **Verificación de Versiones:**
+```bash
+node --version
+npm --version
+```
 
-### `npm test`
+## 🛠️ Instalación y Configuración
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **1. Clonar el Repositorio:**
+```bash
+git clone <url-del-repositorio>
+cd rick-and-morty-challenge
+```
 
-### `npm run build`
+### **2. Instalar Dependencias:**
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Nota:** No es necesario instalar React o Material-UI por separado, ya que el `package.json` incluye todas las dependencias necesarias y `npm install` las instalará automáticamente.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### **3. Ejecutar el Proyecto:**
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+La aplicación estará disponible en `http://localhost:3000`
 
-### `npm run eject`
+## 🏗️ Estructura del Proyecto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+src/
+├── components/
+│   └── CharacterListWithHook.js  # Componente principal (UN SOLO COMPONENTE)
+├── hooks/
+│   └── useCharacters.js          # Custom hook con useEffect y lógica de datos
+├── services/
+│   └── rickAndMortyService.js    # Servicio para API calls
+├── App.js                         # Componente raíz con Material-UI Theme
+└── index.js                       # Punto de entrada
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🎨 Decisiones de Diseño y Personalizaciones
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **1. Título Principal: "Rick and Morty - Personajes"**
+- **Justificación**: Aunque el challenge no especifica un título, se agregó para mejorar la experiencia de usuario y dar contexto a la aplicación
+- **Implementación**: Typography con variant="h3" y responsive sizing
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **2. Subtítulo Informativo: "Mostrando X personajes..."**
+- **Justificación**: Proporciona feedback al usuario sobre cuántos personajes se están mostrando
+- **Implementación**: Footer informativo con contador dinámico
 
-## Learn More
+### **3. Tipografía y Tamaños de Texto**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### **Nombres de Personajes:**
+- **Variant**: `h6` (más prominente que subtitle1)
+- **Tamaños responsive**:
+  - Mobile (xs): `0.8rem`
+  - Tablet (sm): `1rem`
+  - Desktop (md+): `1.1rem`
+- **Justificación**: Se ajustó para que los nombres largos como "Abadango Cluster Princess" se vean bien en todas las pantallas
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### **Descripciones (Species/Status):**
+- **Variant**: `subtitle2`
+- **Tamaños responsive**:
+  - Mobile (xs): `0.7rem`
+  - Tablet (sm): `0.8rem`
+  - Desktop (md+): `0.85rem`
+- **Justificación**: Tamaño más pequeño para información secundaria pero legible
 
-### Code Splitting
+### **4. Tamaños de Imágenes Responsive**
+- **Mobile (xs)**: `200px` de altura
+- **Tablet pequeña (sm)**: `240px` de altura
+- **Tablet (md)**: `260px` de altura
+- **Desktop (lg+)**: `260px` de altura
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Justificación**: Los tamaños se definieron considerando el nombre más largo de los personajes ("Ants in my Eyes Johnson", "Abadango Cluster Princess", etc.) para que las Cards mantengan proporciones agradables y el texto no se vea apretado.
 
-### Analyzing the Bundle Size
+### **5. Grid System Responsive**
+- **xs (320px+)**: 1 card por fila
+- **sm (600px+)**: 2 cards por fila
+- **md (900px+)**: 3 cards por fila
+- **lg (1200px+)**: 4 cards por fila
+- **xl (1536px+)**: 6 cards por fila
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### **6. Centrado del Grid**
+- **Container**: `maxWidth="lg"` con centrado flex
+- **Grid**: `justifyContent: 'center'` para centrar las cards
+- **Justificación**: Evita que el contenido se vea desalineado hacia la izquierda en pantallas grandes
 
-### Making a Progressive Web App
+## 🔧 Tecnologías Utilizadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **React 18**: Framework principal
+- **Material-UI (MUI) 5**: Componentes de UI
+- **Emotion**: CSS-in-JS para estilos
+- **Fetch API**: Para llamadas HTTP
+- **Create React App**: Configuración del proyecto
 
-### Advanced Configuration
+## 📱 Responsive Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+El proyecto está optimizado para todas las resoluciones:
 
-### Deployment
+- 📱 **Mobile** (320px+): 1 card por fila, tipografía más pequeña
+- 📱 **Tablet pequeña** (600px+): 2 cards por fila
+- 📱 **Tablet** (900px+): 3 cards por fila
+- 🖥️ **Desktop** (1200px+): 4 cards por fila
+- 🖥️ **Desktop grande** (1536px+): 6 cards por fila
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🎯 API Utilizada
 
-### `npm run build` fails to minify
+- **URL**: https://rickandmortyapi.com/api/character
+- **Método**: GET
+- **Respuesta**: Lista de personajes con información completa
+- **Limitación**: Se muestran solo los primeros 20 personajes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🚀 Scripts Disponibles
+
+- `npm start`: Ejecuta la aplicación en modo desarrollo
+- `npm run build`: Construye la aplicación para producción
+- `npm test`: Ejecuta las pruebas
+- `npm run eject`: Expone la configuración de webpack (irreversible)
+
+## 📝 Notas de Desarrollo
+
+### **Decisiones Técnicas:**
+1. **Un solo componente**: Se mantuvo la simplicidad como requiere el challenge
+2. **Custom Hook**: Se implementó `useCharacters` para separar la lógica de datos de la UI
+3. **Servicio separado**: Para mantener la separación de responsabilidades
+4. **useEffect**: Implementado dentro del custom hook para manejar el ciclo de vida
+5. **Material-UI**: Para componentes consistentes y responsive
+
+### **Ventajas del Custom Hook:**
+- **Separación de Responsabilidades**: La lógica de datos está separada de la UI
+- **Reutilización**: El hook se puede usar en otros componentes
+- **Testabilidad**: Más fácil de testear la lógica por separado
+- **Legibilidad**: Componente más limpio y enfocado en la UI
+- **Mantenibilidad**: Cambios en la lógica no afectan la UI
+
+### **Consideraciones de UX:**
+1. **Loading state**: Spinner mientras se cargan los datos
+2. **Error handling**: Alertas informativas en caso de error
+3. **Hover effects**: Feedback visual en las interacciones
+4. **Responsive design**: Experiencia optimizada en todos los dispositivos
+
